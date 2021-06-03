@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polyglot</title>
+</head>
+<body>
+    
+    <div id="contenedor-figura">
+        <div id="figura"></div>
+    </div>
+
+
+
+
+    <div id="contenedor-botones">
+        <div class="contenedor-btn">
+            <p>escala</p>
+            <span id="menos-escala" class="btn-menos">-</span>
+            <span id="nivel-escala" class="nivel">1</span>
+            <span id="mas-escala" class="btn-mas">+</span>
+        </div>
+
+        <div class="contenedor-btn">
+            <p>rotacion</p>
+            <span id="menos-rotacion" class="btn-menos">-</span>
+            <span id="nivel-rotacion" class="nivel">1</span>
+            <span id="mas-rotacion" class="btn-mas">+</span>
+        </div>
+
+        <div class="contenedor-btn">
+            <p>traslacion</p>
+            <span id="menos-traslacion" class="btn-menos">-</span>
+            <span id="nivel-traslacion" class="nivel">1</span>
+            <span id="mas-traslacion" class="btn-mas">+</span>
+        </div>
+
+    </div>
+
+
+    <style>
+        #figura{
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            background-color: #555;
+        }
+
+        .contenedor-btn{
+            margin-top: 20%;
+            margin-left: 15%;
+            border: #555 1px solid;
+            display: inline-block;
+        }
+
+        .contenedor-btn span{
+            color: blue;
+        }
+
+
+
+    </style>
+
+
+    <script>
+        var caja = document.getElementById("figura")
+
+        var escala_mas = document.getElementById("mas-escala")
+        var escala_menos = document.getElementById("menos-escala")
+        var escala_nivel = document.getElementById("nivel-escala")
+
+        var rotacion_mas = document.getElementById("mas-rotacion")
+        var rotacion_menos = document.getElementById("menos-rotacion")
+        var rotacion_nivel = document.getElementById("nivel-rotacion")
+
+        var traslacion_mas = document.getElementById("mas-traslacion")
+        var traslacion_menos = document.getElementById("menos-traslacion")
+        var traslacion_nivel = document.getElementById("nivel-traslacion")
+
+
+        escala_mas.onclick = function(){
+            escala("+");
+        };
+
+        escala_menos.onclick = function(){
+            escala("-");
+        };
+
+        rotacion_mas.onclick = function(){
+            rotar("+");
+        };
+
+        rotacion_menos.onclick = function(){
+            rotar("-");
+        };
+
+        traslacion_mas.onclick = function(){
+            mover("+");
+        };
+
+        traslacion_menos.onclick = function(){
+            mover("-");
+        };
+
+
+        function escala(change) {
+            lvl = parseInt( escala_nivel.innerText )
+            if(change=="+"){
+                if(lvl<5){
+                    lvl = lvl+1;
+                    
+                }
+            }else{
+                if(lvl>1){
+                    lvl = lvl-1;
+                }
+            }
+            escala_nivel.innerText = lvl;
+            switch(lvl){
+                    case 1:
+                        caja.style.width = "60px";
+                        caja.style.height = "60px";
+                        break;
+                    case 2:
+                        caja.style.width = "80px";
+                        caja.style.height = "80px";
+                        break;
+                    case 3:
+                        caja.style.width = "100px";
+                        caja.style.height = "100px";
+                        break;
+                    case 4:
+                        caja.style.width = "120px";
+                        caja.style.height = "120px";
+                        break;
+                    case 5:
+                        caja.style.width = "140px";
+                        caja.style.height = "140px";
+                        break;
+                }          
+            
+        }
+
+
+        function rotar(change) {
+            lvl = parseInt( rotacion_nivel.innerText )
+            if(change=="+"){
+                if(lvl<6){
+                    lvl = lvl+1;
+                    
+                }
+            }else{
+                if(lvl>1){
+                    lvl = lvl-1;
+                }
+            }
+            rotacion_nivel.innerText = lvl;
+            switch(lvl){
+                    case 1:
+                        caja.style.transform = "rotate(0deg)";
+                        break;
+                    case 2:
+                        caja.style.transform = "rotate(20deg)";
+                        break;
+                    case 3:
+                        caja.style.transform = "rotate(40deg)";
+                        break;
+                    case 4:
+                        caja.style.transform = "rotate(60deg)";
+                        break;
+                    case 5:
+                        caja.style.transform = "rotate(80deg)";
+                        break;
+                    case 6:
+                        caja.style.transform = "rotate(90deg)";
+                        break;
+                }          
+            
+        }
+
+
+        function mover(change) {
+            lvl = parseInt( traslacion_nivel.innerText )
+            if(change=="+"){
+                if(lvl<6){
+                    lvl = lvl+1;
+                    
+                }
+            }else{
+                if(lvl>1){
+                    lvl = lvl-1;
+                }
+            }
+            traslacion_nivel.innerText = lvl;
+            switch(lvl){
+                    case 1:
+                        caja.style.left = "60px";
+                        break;
+                    case 2:
+                        caja.style.left = "70px";
+                        break;
+                    case 3:
+                        caja.style.left = "80px";
+                        break;
+                    case 4:
+                        caja.style.left = "90px";
+                        break;
+                    case 5:
+                        caja.style.left = "100px";
+                        break;
+                    case 6:
+                        caja.style.left = "120px";
+                        break;
+                }          
+            
+        }
+
+    </script>
+
+</body>
+</html>
